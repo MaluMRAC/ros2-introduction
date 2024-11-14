@@ -12,7 +12,7 @@ def generate_launch_description():
             package='turtlesim',
             executable='turtle_teleop_key',
             name='teleop',
-            prefix='xterm -e'  # This runs the node in a new terminal so you can control the turtle
+            # Proper encapsulation of the entire command in single quotes after -e
+            prefix='terminator -x sh -c \'ros2 run turtlesim turtle_teleop_key --ros-args -r __node:=teleop\''
         )
     ])
-    
